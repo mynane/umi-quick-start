@@ -1,0 +1,48 @@
+{
+  "[umi]function component": {
+    "prefix": "fc",
+    "body": [
+      "export interface I$1Props {",
+      "\t[key: string]: any;",
+      "}",
+
+      "const $1: React.FC<I$1Props> = props => {",
+      "\tconst { } = props;",
+      "\treturn (",
+      "\t\t<div className={styles.$1}>",
+      "\t\t\t",
+      "\t\t</div>",
+      "\t);",
+      "};"
+    ],
+    "description": "[umi]function component"
+  },
+  "[umi]function component page": {
+    "prefix": "fcp",
+    "body": [
+      "import React from 'react'",
+      "import styles from './index.less'",
+      "",
+      "\texport interface I$1Props {",
+      "\t[key: string]: any;",
+      "}",
+      "",
+      "const $1: React.FC<I$1Props> = props => {",
+      "\tconst { } = props;",
+      "\treturn (",
+      "\t\t<div className={styles.$1}>",
+      "\t\t\t",
+      "\t\t</div>",
+      "\t);",
+      "};",
+      "",
+      "export default $1;"
+    ],
+    "description": "[umi]function component page"
+  },
+  "[umi]tool return null": {
+    "prefix": "trn",
+    "body": ["if ($0) {", "\treturn null;", "}"],
+    "description": "[umi]tool return null"
+  }
+}

@@ -1,0 +1,119 @@
+{
+	"name": "umi-quick-create",
+	"displayName": "umi-quick-create",
+	"description": "",
+	"publisher": "huazaierli",
+	"version": "0.0.2",
+	"engines": {
+		"vscode": "^1.49.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension:umi.module.create",
+				"title": "[UMI] 新建模块"
+			},
+			{
+				"command": "extension:code.save",
+				"title": "[UMI] 保存代码"
+			},
+			{
+				"command": "extension:umi.component.create",
+				"title": "[UMI] 新建组件"
+			},
+			{
+				"command": "extension:umi.function.create",
+				"title": "[UMI] 新建方法"
+			},
+			{
+				"command": "extension:umi.module.webview",
+				"title": "工作台"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"when": "editorHasSelection && resourceExtname == .tsx",
+					"command": "extension:umi.function.create",
+					"group": "a@3"
+				},
+				{
+					"when": "editorHasSelection",
+					"command": "extension:code.save",
+					"group": "a@4"
+				}
+			],
+			"editor/title": [
+				{
+					"command": "extension:umi.module.webview",
+					"group": "navigation"
+				}
+			],
+			"explorer/context": [
+				{
+					"when": "explorerResourceIsFolder",
+					"command": "extension:umi.module.create",
+					"group": "a@1"
+				},
+				{
+					"when": "explorerResourceIsFolder",
+					"command": "extension:umi.component.create",
+					"group": "a@2"
+				}
+			]
+		},
+		"snippets": [
+			{
+				"language": "typescript",
+				"path": "./snippets/snippet.json"
+			},
+			{
+				"language": "typescriptreact",
+				"path": "./snippets/snippet.json"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint src --ext ts",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile && yarn run lint",
+		"test": "node ./out/test/runTest.js",
+		"publish": "vsce publish patch"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.0",
+		"@types/node": "^14.0.27",
+		"@types/vscode": "^1.49.0",
+		"@typescript-eslint/eslint-plugin": "^4.1.1",
+		"@typescript-eslint/parser": "^4.1.1",
+		"eslint": "^7.9.0",
+		"glob": "^7.1.6",
+		"mocha": "^8.1.3",
+		"typescript": "^4.0.2",
+		"vscode-test": "^1.4.0"
+	},
+	"dependencies": {
+		"@babel/generator": "^7.11.6",
+		"@babel/parser": "^7.11.5",
+		"@babel/traverse": "^7.11.5",
+		"@babel/types": "^7.11.5",
+		"open": "^7.2.1",
+		"prettier": "^2.1.2",
+		"vscode-insert-text": "^1.1.0"
+	},
+	"__metadata": {
+		"id": "8f533503-6d14-4654-bbfe-10e6c61c14f3",
+		"publisherDisplayName": "huazaierli",
+		"publisherId": "8cb2720c-c079-4eda-8585-3ed0b0dc6e7c"
+	}
+}
